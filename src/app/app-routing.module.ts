@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InsertarEmpleadoComponent } from './components/insertar-empleado/insertar-empleado.component';
 
 const routes: Routes = [
-  { path: 'heroes', component: InsertarEmpleadoComponent }
+  { path: 'insertar-empleado', component: InsertarEmpleadoComponent }
 ];
 
 @NgModule({
