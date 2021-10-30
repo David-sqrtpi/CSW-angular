@@ -5,10 +5,12 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InciarSesionComponent } from './components/inciar-sesion/inciar-sesion.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InciarSesionComponent
   ],
   imports: [
     BrowserModule,
