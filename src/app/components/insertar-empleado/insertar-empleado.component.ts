@@ -17,6 +17,13 @@ export class InsertarEmpleadoComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
+  public onSubmit(): void {
+    console.log('Hola, formulario');
+    console.log(this.empleadoForm.get('name')?.value);
+    console.log(this.empleadoForm.get('cedula')?.value);
+    console.log(this.empleadoForm.get('gender')?.value);
+  }
+
   ngOnInit(): void {
   }
 
