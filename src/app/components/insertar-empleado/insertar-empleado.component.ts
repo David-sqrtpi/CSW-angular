@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-insertar-empleado',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsertarEmpleadoComponent implements OnInit {
 
-  constructor() { }
+  empleadoForm = this.fb.group({
+    name: ['', Validators.required],
+    cedula: ['', Validators.required],
+    gender: ['', Validators.required]
+  });
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
