@@ -24,7 +24,7 @@ export class CrearCuentaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     console.log("esta funcionando");
 
 
