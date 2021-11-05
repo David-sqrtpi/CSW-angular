@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { HttpEmpleadoService } from 'src/app/services/http-empleado.service';
 
 @Component({
   selector: 'app-insertar-empleado',
@@ -15,13 +16,27 @@ export class InsertarEmpleadoComponent implements OnInit {
     gender: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  private empleado: object = {};
+
+  constructor(private fb: FormBuilder, private http: HttpEmpleadoService) { }
 
   public onSubmit(): void {
     console.log('Hola, formulario');
-    console.log(this.empleadoForm.get('name')?.value);
-    console.log(this.empleadoForm.get('cedula')?.value);
-    console.log(this.empleadoForm.get('gender')?.value);
+
+    this.empleado = this.empleadoForm.value;
+
+    this.http.crearEmpleado(this.empleado).subscribe(
+      (respuesta) => {
+        console.log("Hubo respuesta");
+      },
+      (error) => {
+        console.log(error);
+        console.log("Ocurrió un error");
+      }
+    );
+
+    console.log("Hola");
+
   }
 
   ngOnInit(): void {
