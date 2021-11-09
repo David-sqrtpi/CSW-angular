@@ -1,7 +1,7 @@
 <form [formGroup]='empleadoForm' (ngSubmit)='onSubmit()'>
     <div class="col-sm-3">
-        <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name" placeholder="John Doe" formControlName="name">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="John Doe" formControlName="nombre">
     </div>
 
     <div class="col-sm-3">
@@ -10,14 +10,39 @@
     </div>
 
     <div class="col-sm-3">
-        <label for="gender" class="form-label">Género</label>
-        <input class="form-control" list="genderOptions" id="gender" placeholder="Escribe para buscar..."
-            formControlName="gender">
+        <label for="genero" class="form-label">Género</label>
+        <input class="form-control" list="genderOptions" id="genero" placeholder="Escribe para buscar..."
+            formControlName="genero">
         <datalist id="genderOptions">
             <option value="Femenino">
             <option value="Masculino">
         </datalist>
     </div>
+
+    <div class="col-sm-3">
+        <label for="idServicio" class="form-label">Servicio</label>
+        <input class="form-control" list="serviceOptions" id="idServicio" placeholder="Escribe para buscar...">
+        <datalist id="serviceOptions" formControlName="idServicio">
+            <option *ngFor="let servicio of servicios" [ngValue]="servicio.id">{{servicio.servicio}}</option>option>
+        </datalist>
+    </div>
+
+    <div class="col-sm-3">
+        <label for="idGerencia" class="form-label">Gerencia</label>
+        <input class="form-control" list="gerencyOptions" id="idGerencia" placeholder="Escribe para buscar..."
+            formControlName="idGerencia">
+        <datalist id="gerencyOptions">
+            <option value="Femenino">
+            <option value="Masculino">
+        </datalist>
+    </div>
+
+    <div class="col-sm-3">
+        <label for="fechaIngreso">Start date:</label>
+
+        <input class="form-control" type="date" id="fechaIngreso" formControlName='fechaIngreso'>
+    </div>
+
 
     <button type="submit" class="btn btn-primary">Añadir empleado</button>
 </form>
