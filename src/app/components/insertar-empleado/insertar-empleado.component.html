@@ -21,21 +21,19 @@
 
     <div class="col-sm-3">
         <label for="idServicio" class="form-label">Servicio</label>
-        <input class="form-control" list="serviceOptions" id="idServicio" placeholder="Escribe para buscar...">
-        <datalist id="serviceOptions" formControlName="idServicio">
-            <option *ngFor="let servicio of servicios" [ngValue]="servicio.id">{{servicio.servicio}}</option>option>
-        </datalist>
+        <select class="form-select" id="serviceOptions" formControlName="idServicio">
+            <option *ngFor="let servicio of servicios" [value]="servicio.id">
+                {{servicio.servicio}}</option>
+        </select>
     </div>
 
-    <div class="col-sm-3">
+    <!-- <div class="col-sm-3">
         <label for="idGerencia" class="form-label">Gerencia</label>
-        <input class="form-control" list="gerencyOptions" id="idGerencia" placeholder="Escribe para buscar..."
-            formControlName="idGerencia">
-        <datalist id="gerencyOptions">
-            <option value="Femenino">
-            <option value="Masculino">
-        </datalist>
-    </div>
+        <select class="form-select" id="serviceOptions" formControlName="idGerencia">
+            <option *ngFor="let gerencia of gerencias" [value]="gerencia.id">
+                {{gerencia.gerencia}}</option>
+        </select>
+    </div> -->
 
     <div class="col-sm-3">
         <label for="fechaIngreso">Start date:</label>

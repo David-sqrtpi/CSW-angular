@@ -18,8 +18,8 @@ export class InsertarEmpleadoComponent implements OnInit {
     cedula: ['', Validators.required],
     genero: ['', Validators.required],
     fechaIngreso: ['', Validators.required],
-    idServicio: ['', Validators.required],
-    idGerencia: ['', Validators.required]
+    idServicio: ['0', Validators.required],
+    idGerencia: ['0', Validators.required]
   });
 
   private empleado: Empleado = {};
@@ -30,9 +30,9 @@ export class InsertarEmpleadoComponent implements OnInit {
     private httpServicio: HttpServiciosService) { }
 
   public onSubmit(): void {
-    console.log('Hola, formulario');
-
     this.empleado = this.empleadoForm.value;
+
+    console.log(this.empleadoForm);
 
     console.log(this.empleado);
 
@@ -47,9 +47,6 @@ export class InsertarEmpleadoComponent implements OnInit {
         console.log("Ocurrió un error");
       }
     );
-
-    console.log("Hola");
-
   }
 
   ngOnInit(): void {
