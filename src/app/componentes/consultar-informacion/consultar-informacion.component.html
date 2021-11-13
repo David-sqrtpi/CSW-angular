@@ -10,7 +10,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="cedulaForm.get('cedula')?.invalid">Buscar</button>
 </form>
 
-<table class="table table-striped" *ngIf="empleados.length >= 1">
+<table class="table table-striped" *ngIf="empleados.length">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -38,4 +38,4 @@
 <div class="spinner-border text-primary" role="status" *ngIf='isLoading'>
     <span class="visually-hidden">Loading...</span>
 </div>
-<p *ngIf='!hayEmpleados'>No existe el empleado con esa cédula</p>
+<p *ngIf='!hayEmpleados && !isLoading'>No existe el empleado con esa cédula</p>

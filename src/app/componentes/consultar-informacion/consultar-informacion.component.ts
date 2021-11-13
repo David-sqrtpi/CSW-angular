@@ -33,16 +33,10 @@ export class ConsultarInformacionComponent implements OnInit {
     this.httpEmpleado.getEmpleados(cedula).subscribe(
       (empleados) => {
         this.isLoading = false;
-        if (empleados === null) {
-          this.hayEmpleados = false;
-          this.empleados = [];
-        } else {
-          this.hayEmpleados = true;
-          this.empleados = empleados;
-        }
-        this.empleados = empleados === null ? [] : empleados;
+        this.empleados = empleados;
 
-        console.log(empleados);
+        this.hayEmpleados = empleados.length > 0;
+
       },
       (error) => {
         this.hayEmpleados = false;
