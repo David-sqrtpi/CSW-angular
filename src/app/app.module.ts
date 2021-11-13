@@ -7,19 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrearCuentaComponent } from './componentes/crear-cuenta/crear-cuenta.component';
 import { InsertarEmpleadoComponent } from './components/insertar-empleado/insertar-empleado.component';
+import { ConsultarInformacionComponent } from './componentes/consultar-informacion/consultar-informacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearCuentaComponent,
-    InsertarEmpleadoComponent
+    InsertarEmpleadoComponent,
+    ConsultarInformacionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

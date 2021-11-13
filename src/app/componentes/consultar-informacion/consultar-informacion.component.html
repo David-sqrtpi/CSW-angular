@@ -1,0 +1,41 @@
+<form [formGroup]='cedulaForm' (ngSubmit)='onSubmit()'>
+    <div class="mb-3">
+        <label for="cedula" class="form-label">Email address</label>
+        <input type="number" class="form-control" id="cedula" placeholder="Escriba la cédula..."
+            formControlName='cedula'>
+    </div>
+
+    <p *ngIf="cedulaForm.get('cedula')?.invalid && cedulaForm.get('cedula')?.dirty">La cédula es requerida</p>
+
+    <button type="submit" class="btn btn-primary" [disabled]="cedulaForm.get('cedula')?.invalid">Buscar</button>
+</form>
+
+<table class="table table-striped" *ngIf="empleados.length >= 1">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Gerencia</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Fecha de ingreso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let empleado of empleados; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ empleado.idServicio }}</td>
+            <td>{{ empleado.idGerencia }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.cedula | number }}</td>
+            <td>{{ empleado.genero }}</td>
+            <td>{{ empleado.fechaIngreso }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="spinner-border text-primary" role="status" *ngIf='isLoading'>
+    <span class="visually-hidden">Loading...</span>
+</div>
+<p *ngIf='!hayEmpleados'>No existe el empleado con esa cédula</p>
