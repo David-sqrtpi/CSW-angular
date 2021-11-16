@@ -1,13 +1,12 @@
 <form [formGroup]="formularioCuenta" (ngSubmit)='onSubmit()'>
     <div class="mb-3 col-lg-4">
         <label for="rol" class="form-label">Seleccionar rol</label>
-        <input class="form-control" list="datalistOptions" id="rol" placeholder="Escribir para buscar..."
-            formControlName="rol">
-        <datalist id="datalistOptions">
-            <option value="Supervisor">
-            <option value="Talento humano">
 
-        </datalist>
+        <select formControlName="idRol" class="form-control">
+            <option value="2">Talento humano</option>
+            <option value="3">Supervisor</option>
+
+        </select>
     </div>
 
     <div class="mb-3 col-lg-4">
@@ -18,12 +17,12 @@
     <div class="mb-3 col-lg-4">
         <label for="email" class="form-label">Correo electrónico</label>
         <input type="email" class="form-control input-sm" id="email" placeholder="nombre@ejempl.com"
-            formControlName="email">
+            formControlName="correo">
     </div>
 
     <div class="mb-3 col-lg-4">
         <label for="clave" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="clave" placeholder="Contraseña..." formControlName="clave">
+        <input type="password" class="form-control" id="clave" placeholder="Contraseña..." formControlName="contrasena">
     </div>
 
     <button type="submit" class="btn btn-primary">Crear cuenta</button>
