@@ -1,0 +1,46 @@
+<form [formGroup]='empleadoForm' (ngSubmit)='onSubmit()'>
+    <div class="col-sm-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="John Doe" formControlName="nombre">
+    </div>
+
+    <div class="col-sm-3">
+        <label for="cedula" class="form-label">Cédula</label>
+        <input type="number" class="form-control" id="cedula" placeholder="Cédula" formControlName="cedula">
+    </div>
+
+    <div class="col-sm-3">
+        <label for="genero" class="form-label">Género</label>
+        <input class="form-control" list="genderOptions" id="genero" placeholder="Escribe para buscar..."
+            formControlName="genero">
+        <datalist id="genderOptions">
+            <option value="Femenino">
+            <option value="Masculino">
+        </datalist>
+    </div>
+
+    <div class="col-sm-3">
+        <label for="idServicio" class="form-label">Servicio</label>
+        <select class="form-select" id="serviceOptions" formControlName="idServicio">
+            <option *ngFor="let servicio of servicios" [value]="servicio.id">
+                {{servicio.servicio}}</option>
+        </select>
+    </div>
+
+    <div class="col-sm-3">
+        <label for="idGerencia" class="form-label">Gerencia</label>
+        <select class="form-select" id="serviceOptions" formControlName="idGerencia">
+            <option *ngFor="let gerencia of gerencias" [value]="gerencia.id">
+                {{gerencia.gerencia}}</option>
+        </select>
+    </div>
+
+    <div class="col-sm-3">
+        <label for="fechaIngreso">Start date:</label>
+
+        <input class="form-control" type="date" id="fechaIngreso" formControlName='fechaIngreso'>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Añadir empleado</button>
+</form>

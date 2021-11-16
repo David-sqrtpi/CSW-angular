@@ -1,0 +1,31 @@
+<form [formGroup]="formularioCuenta" (ngSubmit)='onSubmit()'>
+    <div class="mb-3 col-lg-4">
+        <label for="rol" class="form-label">Seleccionar rol</label>
+        <input class="form-control" list="datalistOptions" id="rol" placeholder="Escribir para buscar..."
+            formControlName="rol">
+        <datalist id="datalistOptions">
+            <option value="Supervisor">
+            <option value="Talento humano">
+
+        </datalist>
+    </div>
+
+    <div class="mb-3 col-lg-4">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre..." formControlName="nombre">
+    </div>
+
+    <div class="mb-3 col-lg-4">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control input-sm" id="email" placeholder="nombre@ejempl.com"
+            formControlName="email">
+    </div>
+
+    <div class="mb-3 col-lg-4">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="clave" placeholder="Contraseña..." formControlName="clave">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear cuenta</button>
+
+</form>
