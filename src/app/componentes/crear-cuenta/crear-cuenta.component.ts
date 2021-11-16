@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Cuenta } from 'src/app/entidades/cuenta';
+import { HttpCuentasService } from 'src/app/services/http-cuentas.service';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -10,14 +12,16 @@ import { Validators } from '@angular/forms';
 export class CrearCuentaComponent implements OnInit {
 
   formularioCuenta = this.fb.group({
-    rol: ['', Validators.required],
+    idRol: ['', Validators.required],
     nombre: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    clave: ['', Validators.required]
-  })
+    correo: ['', [Validators.required, Validators.email]],
+    contrasena: ['', Validators.required]
+  });
 
 
-  constructor(private fb: FormBuilder) {
+  private cuenta: Cuenta = {};
+
+  constructor(private fb: FormBuilder, private httpcuenta: HttpCuentasService) {
 
   }
 
@@ -26,6 +30,23 @@ export class CrearCuentaComponent implements OnInit {
 
   public onSubmit(): void {
     console.log("esta funcionando");
+
+    this.cuenta = this.formularioCuenta.value;
+
+    console.log(this.cuenta);
+
+    this.httpcuenta.crearCuenta(this.cuenta).subscribe(
+
+      (respuesta) => {
+        console.log(respuesta);
+
+        console.log("Hubo respuesta");
+      },
+      (error) => {
+        console.log(error);
+        console.log("Ocurrió un error");
+      }
+    );
 
 
 
