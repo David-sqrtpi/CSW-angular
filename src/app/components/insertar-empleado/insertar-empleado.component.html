@@ -4,18 +4,29 @@
         <input type="number" class="form-control" id="cedula" placeholder="Cédula" formControlName="cedula">
     </div>
 
+    <p *ngIf="empleadoForm.get('cedula')?.invalid && empleadoForm.get('cedula')?.dirty" style="color: red;"
+        class="col-sm-3">La cédula es
+        requerida</p>
+
     <div class="col-sm-3">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" class="form-control" id="nombre" placeholder="John Doe" formControlName="nombre">
     </div>
 
+    <p *ngIf="empleadoForm.get('nombre')?.invalid && empleadoForm.get('nombre')?.dirty" style="color: red;"
+        class="col-sm-3">El nombre es requerido</p>
+
     <div class="col-sm-3">
         <label for="genero" class="form-label">Género</label>
-        <select id="genero" class="form-control" formControlName="genero">
+        <select id="genero" class="form-select" formControlName="genero">
             <option value="1">Masculino</option>
             <option value="2">Femenino</option>
         </select>
     </div>
+
+    <p *ngIf="empleadoForm.get('genero')?.invalid && empleadoForm.get('genero')?.dirty" style="color: red;"
+        class="col-sm-3">El género es
+        requerido</p>
 
     <div class="col-sm-3">
         <label for="idServicio" class="form-label">Servicio</label>
@@ -25,6 +36,10 @@
         </select>
     </div>
 
+    <p *ngIf="empleadoForm.get('servicio')?.invalid && empleadoForm.get('servicio')?.dirty" style="color: red;"
+        class="col-sm-3">El servicio es
+        requerid</p>
+
     <div class="col-sm-3">
         <label for="idGerencia" class="form-label">Gerencia</label>
         <select class="form-select" id="serviceOptions" formControlName="idGerencia">
@@ -33,12 +48,19 @@
         </select>
     </div>
 
+    <p *ngIf="empleadoForm.get('gerencia')?.invalid && empleadoForm.get('gerencia')?.dirty" style="color: red;"
+        class="col-sm-3">La gerencia es
+        requerida</p>
+
     <div class="col-sm-3">
         <label for="fechaIngreso">Start date:</label>
 
         <input class="form-control" type="date" id="fechaIngreso" formControlName='fechaIngreso'>
     </div>
 
+    <p *ngIf="empleadoForm.get('fechaIngreso')?.invalid && empleadoForm.get('fechaIngreso')?.dirty" style="color: red;"
+        class="col-sm-3">La fecha es
+        requerida</p>
 
-    <button type="submit" class="btn btn-primary">Añadir empleado</button>
+    <button type="submit" class="btn btn-primary" [disabled]='this.empleadoForm.invalid'>Añadir empleado</button>
 </form>

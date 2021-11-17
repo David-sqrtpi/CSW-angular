@@ -18,13 +18,12 @@ export class InsertarEmpleadoComponent implements OnInit {
   empleadoForm = this.fb.group({
     nombre: ['', Validators.required],
     cedula: ['', Validators.required],
-    genero: ['', Validators.required],
+    genero: ['1', Validators.required],
     fechaIngreso: ['', Validators.required],
-    idServicio: ['0', Validators.required],
-    idGerencia: ['0', Validators.required]
+    idServicio: ['1', Validators.required],
+    idGerencia: ['1', Validators.required]
   });
 
-  private empleado: Empleado = {};
   public servicios: Servicio[] = [];
   public gerencias: Gerencias[] = [];
 
@@ -35,16 +34,12 @@ export class InsertarEmpleadoComponent implements OnInit {
   ) { }
 
   public onSubmit(): void {
-    this.empleado = this.empleadoForm.value;
+    const empleado = this.empleadoForm.value;
 
-    console.log(this.empleadoForm);
-
-    console.log(this.empleado);
-
-    this.httpEmpleado.crearEmpleado(this.empleado).subscribe(
-      (respuesta) => {
-        console.log(respuesta);
-
+    this.httpEmpleado.crearEmpleado(empleado).subscribe(
+      () => {
+        this.empleadoForm.reset();
+        alert("Se ha insertado el empleado");
         console.log("Hubo respuesta");
       },
       (error) => {

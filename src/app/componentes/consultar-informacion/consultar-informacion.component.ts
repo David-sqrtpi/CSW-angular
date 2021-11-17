@@ -15,29 +15,24 @@ export class ConsultarInformacionComponent implements OnInit {
 
   public empleado: Empleado = {};
   public isLoading: boolean = false;
-  public hayEmpleados: boolean = true;
+  public hayEmpleado: boolean = true;
 
   constructor(private fb: FormBuilder, private httpEmpleado: HttpEmpleadoService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onSubmit() {
     this.isLoading = true;
     const cedula: number = this.cedulaForm.get('cedula')?.value;
 
-    const params = {
-      cedula: cedula
-    }
-
     this.httpEmpleado.getEmpleado(cedula).subscribe(
       (empleado) => {
         this.isLoading = false;
+        this.hayEmpleado = true;
         this.empleado = empleado;
-
       },
       (error) => {
-        this.hayEmpleados = false;
+        this.hayEmpleado = false;
         this.isLoading = false;
         console.log(error);
       }

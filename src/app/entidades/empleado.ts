@@ -1,9 +1,11 @@
 export interface Empleado {
-    id?: number;
+    cedula?: number;
     idServicio?: number;
     idGerencia?: number;
     nombre?: string;
-    cedula?: number;
-    genero?: string;
+    idGenero?: number;
     fechaIngreso?: Date;
+    servicio?: string;
+    gerencia?: string;
+    genero?: string;
 }

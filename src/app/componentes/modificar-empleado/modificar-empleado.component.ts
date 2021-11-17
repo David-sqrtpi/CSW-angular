@@ -45,8 +45,6 @@ export class ModificarEmpleadoComponent implements OnInit {
 
     this.httpGerencia.obtenerGerencias().subscribe(
       (gerencias) => {
-        console.log(gerencias);
-
         this.gerencias = gerencias;
       },
       (error) => {
@@ -56,8 +54,6 @@ export class ModificarEmpleadoComponent implements OnInit {
 
     this.httpServicio.getServicios().subscribe(
       (servicios) => {
-        console.log(servicios);
-
         this.servicios = servicios;
       },
       (error) => {
