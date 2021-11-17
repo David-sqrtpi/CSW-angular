@@ -8,9 +8,9 @@ describe('InciarSesionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InciarSesionComponent ]
+      declarations: [InciarSesionComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
