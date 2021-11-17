@@ -12,17 +12,21 @@ const URL = environment.urlApi;
 export class HttpEmpleadoService {
   constructor(private http: HttpClient) { }
 
-  getEmpleados(cedula: number) {
-    const params = new HttpParams()
-      .set('cedula', cedula)
-    return this.http.get<Empleado[]>(`${URL}/empleados`, { params });
+  getEmpleados() {
+    return this.http.get<Empleado[]>(`${URL}/empleados`);
+  }
+
+  getEmpleado(cedula: number) {
+    return this.http.get<Empleado>(`${URL}/empleados/${cedula}`);
   }
 
   crearEmpleado(cuerpo: object) {
     return this.http.post(`${URL}/empleados`, cuerpo);
   }
 
-  modificarEmpleado() {
+  modificarEmpleado(cuerpo: Empleado) {
+    const cedula = cuerpo.cedula;
 
+    return this.http.put(`${URL}/empleados/${cedula}`, cuerpo);
   }
 }
