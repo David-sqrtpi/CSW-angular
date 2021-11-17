@@ -1,4 +1,4 @@
-<form [formGroup]='empleadoForm' (ngSubmit)='onSubmit()'>
+<form [formGroup]='empleadoForm' (ngSubmit)="modificarEmpleado()">
     <div class="col-sm-3">
         <label for="cedula" class="form-label">Cédula</label>
         <input type="number" class="form-control" id="cedula" placeholder="Cédula" formControlName="cedula">
@@ -11,7 +11,7 @@
 
     <div class="col-sm-3">
         <label for="genero" class="form-label">Género</label>
-        <select id="genero" class="form-control" formControlName="genero">
+        <select id="genero" formControlName="genero" class="form-control">
             <option value="1">Masculino</option>
             <option value="2">Femenino</option>
         </select>
@@ -39,6 +39,5 @@
         <input class="form-control" type="date" id="fechaIngreso" formControlName='fechaIngreso'>
     </div>
 
-
-    <button type="submit" class="btn btn-primary">Añadir empleado</button>
+    <button type="submit" class="btn btn-primary">Modificar empleado</button>
 </form>

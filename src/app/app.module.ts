@@ -9,13 +9,15 @@ import { CrearCuentaComponent } from './componentes/crear-cuenta/crear-cuenta.co
 import { InsertarEmpleadoComponent } from './components/insertar-empleado/insertar-empleado.component';
 import { ConsultarInformacionComponent } from './componentes/consultar-informacion/consultar-informacion.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModificarEmpleadoComponent } from './componentes/modificar-empleado/modificar-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearCuentaComponent,
     InsertarEmpleadoComponent,
-    ConsultarInformacionComponent
+    ConsultarInformacionComponent,
+    ModificarEmpleadoComponent
   ],
   imports: [
     BrowserModule,

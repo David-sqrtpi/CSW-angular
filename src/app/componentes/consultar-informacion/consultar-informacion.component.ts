@@ -13,7 +13,7 @@ export class ConsultarInformacionComponent implements OnInit {
     cedula: ['', [Validators.required]]
   });
 
-  public empleados: Empleado[] = [];
+  public empleado: Empleado = {};
   public isLoading: boolean = false;
   public hayEmpleados: boolean = true;
 
@@ -30,12 +30,10 @@ export class ConsultarInformacionComponent implements OnInit {
       cedula: cedula
     }
 
-    this.httpEmpleado.getEmpleados(cedula).subscribe(
-      (empleados) => {
+    this.httpEmpleado.getEmpleado(cedula).subscribe(
+      (empleado) => {
         this.isLoading = false;
-        this.empleados = empleados;
-
-        this.hayEmpleados = empleados.length > 0;
+        this.empleado = empleado;
 
       },
       (error) => {

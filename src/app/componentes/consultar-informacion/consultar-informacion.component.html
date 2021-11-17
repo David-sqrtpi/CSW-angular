@@ -10,7 +10,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="cedulaForm.get('cedula')?.invalid">Buscar</button>
 </form>
 
-<table class="table table-striped" *ngIf="empleados.length">
+<!-- <table class="table table-striped" *ngIf="empleados.length">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -33,7 +33,7 @@
             <td>{{ empleado.fechaIngreso }}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 <div class="spinner-border text-primary" role="status" *ngIf='isLoading'>
     <span class="visually-hidden">Loading...</span>
