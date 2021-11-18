@@ -4,9 +4,13 @@
         <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
     </div>
 
+    <p *ngIf="inicioSesion.get('email')?.invalid && inicioSesion.get('email')?.dirty" style="color: red;" class="mb-3">
+        El Correo es requerido</p>
     <div class="mb-3">
         <label for="key" class="form-label"> Contraseña</label>
         <input type="password" class="form-control" id="key" placeholder="Contraseña" formControlName="contrasena">
     </div>
+    <p *ngIf="inicioSesion.get('contrasena')?.invalid && inicioSesion.get('contrasena')?.dirty" style="color: red;"
+        class="mb-3">El Correo es requerido</p>
     <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
 </form>

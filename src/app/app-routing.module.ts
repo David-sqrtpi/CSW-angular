@@ -5,13 +5,15 @@ import { InsertarEmpleadoComponent } from './components/insertar-empleado/insert
 import { CrearCuentaComponent } from './componentes/crear-cuenta/crear-cuenta.component';
 import { InciarSesionComponent } from './components/inciar-sesion/inciar-sesion.component';
 import { ModificarEmpleadoComponent } from './componentes/modificar-empleado/modificar-empleado.component';
+import { VigilanteGuard } from './vigilante.guard';
 
 const routes: Routes = [
   { path: 'login', component: InciarSesionComponent },
   { path: 'insertar-empleado', component: InsertarEmpleadoComponent },
   { path: 'consultar', component: ConsultarInformacionComponent },
   { path: 'crear-cuenta', component: CrearCuentaComponent },
-  { path: 'modificar-empleado', component: ModificarEmpleadoComponent }
+  { path: 'modificar-empleado', component: ModificarEmpleadoComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
