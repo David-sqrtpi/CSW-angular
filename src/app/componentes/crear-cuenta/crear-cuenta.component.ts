@@ -18,8 +18,10 @@ export class CrearCuentaComponent implements OnInit {
     contrasena: ['', Validators.required]
   });
 
+  public isLoading: boolean = false;
+  public nuevacuenta: boolean = true;
 
-  private cuenta: Cuenta = {};
+  public cuenta: Cuenta = {};
 
   constructor(private fb: FormBuilder, private httpcuenta: HttpCuentasService) {
 
@@ -28,7 +30,9 @@ export class CrearCuentaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onSubmit(): void {
+  public onSubmit() {
+    this.isLoading = true;
+
     console.log("esta funcionando");
 
     this.cuenta = this.formularioCuenta.value;
@@ -37,16 +41,18 @@ export class CrearCuentaComponent implements OnInit {
 
     this.httpcuenta.crearCuenta(this.cuenta).subscribe(
 
-      (respuesta) => {
-        console.log(respuesta);
-
-        console.log("Hubo respuesta");
+      (cuenta) => {
+        this.isLoading = false;
+        this.nuevacuenta = true;
+        this.cuenta = cuenta;
       },
       (error) => {
+        this.nuevacuenta = false;
+        this.isLoading = false;
         console.log(error);
-        console.log("Ocurrió un error");
       }
     );
+
 
 
 

@@ -6,4 +6,6 @@ export interface Cuenta {
     email?: EmailValidator;
     clave?: string;
 
+
+
 }
