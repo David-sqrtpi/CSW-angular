@@ -44,7 +44,7 @@ export class InsertarEmpleadoComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        console.log("Ocurrió un error");
+        alert(`El empleado con cédula ${this.empleadoForm.get("cedula")?.value} ya está registrado`);
       }
     );
   }

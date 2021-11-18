@@ -54,8 +54,7 @@
 
     <div class="col-sm-3">
         <label for="fechaIngreso">Start date:</label>
-
-        <input class="form-control" type="date" id="fechaIngreso" formControlName='fechaIngreso'>
+        <input class="form-control" type="date" id="fechaIngreso">
     </div>
 
     <p *ngIf="empleadoForm.get('fechaIngreso')?.invalid && empleadoForm.get('fechaIngreso')?.dirty" style="color: red;"
@@ -64,3 +63,5 @@
 
     <button type="submit" class="btn btn-primary" [disabled]='this.empleadoForm.invalid'>Añadir empleado</button>
 </form>
+
+{{empleadoForm.value | json}}
