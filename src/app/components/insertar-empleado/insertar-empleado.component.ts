@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { Empleado } from 'src/app/entidades/empleado';
 import { Gerencias } from 'src/app/entidades/gerencias';
 import { Servicio } from 'src/app/entidades/servicio';
 import { HttpEmpleadoService } from 'src/app/services/http-empleado.service';
