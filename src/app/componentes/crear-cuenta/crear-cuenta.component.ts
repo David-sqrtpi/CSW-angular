@@ -12,7 +12,7 @@ import { HttpCuentasService } from 'src/app/services/http-cuentas.service';
 export class CrearCuentaComponent implements OnInit {
 
   formularioCuenta = this.fb.group({
-    idRol: ['', Validators.required],
+    idRol: [2, Validators.required],
     nombre: ['', Validators.required],
     correo: ['', [Validators.required, Validators.email]],
     contrasena: ['', Validators.required]
@@ -40,21 +40,19 @@ export class CrearCuentaComponent implements OnInit {
     console.log(this.cuenta);
 
     this.httpcuenta.crearCuenta(this.cuenta).subscribe(
-
       (cuenta) => {
+        alert("Se creó la cuenta");
         this.isLoading = false;
         this.nuevacuenta = true;
         this.cuenta = cuenta;
+        this.formularioCuenta.reset();
       },
       (error) => {
+        alert("Error en el servidor");
         this.nuevacuenta = false;
         this.isLoading = false;
         console.log(error);
       }
     );
-
-
-
-
   }
 }

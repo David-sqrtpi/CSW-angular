@@ -18,7 +18,7 @@
 
     <div class="col-sm-3">
         <label for="genero" class="form-label">Género</label>
-        <select id="genero" class="form-select" formControlName="genero">
+        <select id="genero" class="form-select" formControlName="idGenero">
             <option value="1">Masculino</option>
             <option value="2">Femenino</option>
         </select>
@@ -38,7 +38,7 @@
 
     <p *ngIf="empleadoForm.get('servicio')?.invalid && empleadoForm.get('servicio')?.dirty" style="color: red;"
         class="col-sm-3">El servicio es
-        requerid</p>
+        requerido</p>
 
     <div class="col-sm-3">
         <label for="idGerencia" class="form-label">Gerencia</label>

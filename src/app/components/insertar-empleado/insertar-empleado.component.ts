@@ -18,7 +18,7 @@ export class InsertarEmpleadoComponent implements OnInit {
   empleadoForm = this.fb.group({
     nombre: ['', Validators.required],
     cedula: ['', Validators.required],
-    genero: ['1', Validators.required],
+    idGenero: ['1', Validators.required],
     fechaIngreso: ['', Validators.required],
     idServicio: ['1', Validators.required],
     idGerencia: ['1', Validators.required]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Empleado } from 'src/app/entidades/empleado';
 import { HttpEmpleadoService } from 'src/app/services/http-empleado.service';
 
@@ -17,7 +18,9 @@ export class ConsultarInformacionComponent implements OnInit {
   public isLoading: boolean = false;
   public hayEmpleado: boolean = true;
 
-  constructor(private fb: FormBuilder, private httpEmpleado: HttpEmpleadoService) { }
+  constructor(private fb: FormBuilder,
+    private httpEmpleado: HttpEmpleadoService,
+    private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -37,6 +40,10 @@ export class ConsultarInformacionComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  editar(cedula: any) {
+    this.router.navigate(["/modificar-empleado", { cedula: cedula }]);
   }
 
 }

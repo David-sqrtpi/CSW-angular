@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from 'src/app/entidades/empleado';
 import { Gerencias } from 'src/app/entidades/gerencias';
 import { Servicio } from 'src/app/entidades/servicio';
@@ -13,15 +14,13 @@ import { HttpServiciosService } from 'src/app/services/http-servicios.service';
   styleUrls: ['./modificar-empleado.component.css']
 })
 export class ModificarEmpleadoComponent implements OnInit {
-
-  private cedula: number = 0;
   public gerencias: Gerencias[] = [];
   public servicios: Servicio[] = [];
 
   empleadoForm = this.fb.group({
     nombre: ['', Validators.required],
     cedula: ['', Validators.required],
-    genero: ['', Validators.required],
+    idGenero: ['', Validators.required],
     fechaIngreso: ['', Validators.required],
     idServicio: ['0', Validators.required],
     idGerencia: ['0', Validators.required]
@@ -30,11 +29,14 @@ export class ModificarEmpleadoComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private httpEmpleado: HttpEmpleadoService,
     private httpServicio: HttpServiciosService,
-    private httpGerencia: HttpGerenciasService) { }
+    private httpGerencia: HttpGerenciasService,
+    private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const cedula: number = +this.router.snapshot.paramMap.get("cedula")!;
+
     this.empleadoForm.get("cedula")?.disable();
-    this.httpEmpleado.getEmpleado(1234).subscribe(
+    this.httpEmpleado.getEmpleado(cedula).subscribe(
       (empleado) => {
         this.empleadoForm.setValue(empleado);
       },
@@ -66,6 +68,7 @@ export class ModificarEmpleadoComponent implements OnInit {
     this.empleadoForm.get("cedula")?.enable();
     const empleado = this.empleadoForm.value;
     this.empleadoForm.get("cedula")?.disable();
+    console.log(empleado);
 
     this.httpEmpleado.modificarEmpleado(empleado).subscribe(
       (empleado) => {
@@ -76,5 +79,4 @@ export class ModificarEmpleadoComponent implements OnInit {
       }
     );
   }
-
 }

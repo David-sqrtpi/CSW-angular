@@ -9,8 +9,8 @@
         </select>
     </div>
     <p *ngIf="formularioCuenta.get('idRol')?.invalid && formularioCuenta.get('idRol')?.dirty" style="color: red;"
-        class="col-sm-3">el Rol es
-        requerida</p>
+        class="col-sm-3">El rol es
+        requerido</p>
 
 
     <div class="mb-3 col-lg-4">
@@ -18,8 +18,8 @@
         <input type="text" class="form-control" id="nombre" placeholder="Nombre..." formControlName="nombre">
     </div>
     <p *ngIf="formularioCuenta.get('nombre')?.invalid && formularioCuenta.get('nombre')?.dirty" style="color: red;"
-        class="mb-3 col-lg-4">el Nombre es
-        requerida</p>
+        class="mb-3 col-lg-4">El nombre es
+        requerido</p>
 
     <div class="mb-3 col-lg-4">
         <label for="email" class="form-label">Correo electrónico</label>
@@ -27,23 +27,14 @@
             formControlName="correo">
     </div>
     <p *ngIf="formularioCuenta.get('correo')?.invalid && formularioCuenta.get('correo')?.dirty" style="color: red;"
-        class="mb-3 col-lg-4">el correo es
-        requerida</p>
+        class="mb-3 col-lg-4">Revisa este campo</p>
 
     <div class="mb-3 col-lg-4">
         <label for="clave" class="form-label">Contraseña</label>
         <input type="password" class="form-control" id="clave" placeholder="Contraseña..." formControlName="contrasena">
     </div>
     <p *ngIf="formularioCuenta.get('contrasena')?.invalid && formularioCuenta.get('contrasena')?.dirty"
-        style="color: red;" class="mb-3 col-lg-4">la Contraseña es
+        style="color: red;" class="mb-3 col-lg-4">La contraseña es
         requerida</p>
-
-
-    <button type="submit" class="btn btn-primary">Crear cuenta</button>
-
-
-
-
-
-
+    <button type="submit" class="btn btn-primary" [disabled]='formularioCuenta.invalid'>Crear cuenta</button>
 </form>

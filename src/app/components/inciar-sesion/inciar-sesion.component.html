@@ -5,12 +5,13 @@
     </div>
 
     <p *ngIf="inicioSesion.get('email')?.invalid && inicioSesion.get('email')?.dirty" style="color: red;" class="mb-3">
-        El Correo es requerido</p>
+        Revisa este campo</p>
     <div class="mb-3">
         <label for="key" class="form-label"> Contraseña</label>
         <input type="password" class="form-control" id="key" placeholder="Contraseña" formControlName="contrasena">
     </div>
     <p *ngIf="inicioSesion.get('contrasena')?.invalid && inicioSesion.get('contrasena')?.dirty" style="color: red;"
-        class="mb-3">El Correo es requerido</p>
-    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        class="mb-3">La contrasela es requerida</p>
+    <button type="submit" class="btn btn-primary" [disabled]="inicioSesion.get('contrasena')?.invalid">Iniciar
+        Sesión</button>
 </form>
